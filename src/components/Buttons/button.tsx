@@ -17,7 +17,7 @@ export default function StyledButton({children, style}){
 
     return (
     <>
-        
+        <TouchableOpacity> {children} </TouchableOpacity>
     </>
     )
 }
