@@ -1,21 +1,24 @@
 import React, { useEffect, useState } from "react";
 import QRCode from 'qrcode'
 
-export type proper = {
-    text: string;
+// the type of params receive to qr code
+type proper = {
+    id: string;
 }
 
-export default function QRCodeGenerator( { text }: proper ){
+export default function QRCodeGenerator( { id }: proper ){
+    // Here I state the function that will receive and show the component to return the QRCode
     const [src, setSrc] = useState('');
 
+    // remember that this method used is to redirect to an route;
+    // to read more about this check the URL: https://www.npmjs.com/package/qrcode
     useEffect(() => {
-        QRCode.toDataURL(text).then((setSrc));
+        QRCode.toDataURL(id).then((setSrc));
     }, [])
 
     return (
         <div>
-            <img src={src} alt="" />
+            <img src={src} alt="no image" />
         </div>
-    )
+        )
 };
-

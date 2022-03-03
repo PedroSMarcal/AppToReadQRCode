@@ -1,9 +1,9 @@
 import React from "react"
-import QRCodeGenerator from "./components/QRCode"
+import { AppRoutes } from "./routes/routes"
 
 function App() {
   return (
-    <h1> Welcome, please navigate to next page </h1>
+    <AppRoutes />
   )
 }
 
