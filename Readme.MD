@@ -1,6 +1,6 @@
 # FrontEnd
 
-## To run the services please clone this repository to your machine, becareful to not overwrite the others branch;
+## To run the services please clone this repository to your machine, be careful to not overwrite the others branch;
 
 ### The comands to run the aplication it's:
 ```
