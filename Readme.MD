@@ -4,8 +4,9 @@
 > This must be the fiest to exceute
 
 ### The database used were mongoDB;
-*** if you don't have mongoDB install use the link bellow ***
-*** https://www.mongodb.com/try/download/community ***
+** if you don't have mongoDB install use the link bellow **
+
+** https://www.mongodb.com/try/download/community **
 
 ---
 
