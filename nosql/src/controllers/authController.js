@@ -1,3 +1,5 @@
+// I create the routes and the services together, because it's a simple API with an CRUD
+
 const express = require('express');
 
 const Ticket = require('../models/ticket');
@@ -23,7 +25,7 @@ router.post('/register', async(req, res) => {
 router.get('/getall', async(req, res) => {
     try {
         const getTickets = await Ticket.find({})
-        return res.send({ getTickets });
+        return res.status(200).send({ getTickets });
     }
     catch{
         return res.status(400).send({ error: 'No Ticket' });

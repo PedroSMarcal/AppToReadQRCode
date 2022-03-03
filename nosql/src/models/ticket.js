@@ -1,3 +1,4 @@
+// I use the mongo DB to get my simple class schema, and this file was to create the model;
 const moongose = require('../database');
 
 const TicketSchema = new moongose.Schema({

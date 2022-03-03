@@ -1,3 +1,4 @@
+// The connection with mongodb
 const moongose = require('mongoose');
 
 // moongose.connect('mongodb://localhost/noderest', { useMongoClient: true });

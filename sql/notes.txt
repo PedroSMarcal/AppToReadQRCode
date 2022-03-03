@@ -1,8 +1,0 @@
-Token: 
-Id_Evento:
-Nome_Integrante: 
-CPF:  
-
-https://www.npmjs.com/package/react-qr-code
-
-Socket IO -> Conexão em tempo real;

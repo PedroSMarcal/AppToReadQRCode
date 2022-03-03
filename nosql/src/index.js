@@ -1,3 +1,5 @@
+// Here it's where the server starts, it's very simple just open the dors, and import the routes from my controllers;
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
