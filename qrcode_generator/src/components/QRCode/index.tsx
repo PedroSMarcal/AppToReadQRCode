@@ -13,7 +13,7 @@ export default function QRCodeGenerator( { id }: proper ){
     // remember that this method used is to redirect to an route;
     // to read more about this check the URL: https://www.npmjs.com/package/qrcode
     useEffect(() => {
-        QRCode.toDataURL(id).then((setSrc));
+        QRCode.toDataURL(`localhost:3333/authenticateticket/${id}`).then((setSrc));
     }, [])
 
     return (

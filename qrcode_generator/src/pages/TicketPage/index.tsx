@@ -1,33 +1,50 @@
 import React, { useEffect, useState } from 'react'
-import Cards from '../../components/Cards'
+import { useParams } from 'react-router-dom';
+import Cards from '../../components/Cards';
 import QRCodeGenerator from '../../components/QRCode'
-import api from '../../services/api'
+import api from "../../services/api";
 
-type props = {
-    id: string;
+type ticketprops = {
+    _id: string;
+    event: string;
+    cpf: string;
+    active: boolean;
 }
 
 // This page will present the QRCode, because it will will focus on the ID from the object
-export default function TicketPage({ id }: props){
-    // get just the ticket needed usig the id
-    const [ticket, setTicket] = useState([])
+export default function TicketPage(){
+    let { id } = useParams();
 
-    useEffect(() => {
+    const [ticket, setTicket] = useState<ticketprops>()
+
+    const getOneTicket = () => {
         api.get(`/getbyid/${id}`).then(
             ({data}) => {
-                setTicket(data)
-            }
-        ).catch((error) => {console.log('Could not find the ID')})
+                setTicket(data.getTicketId);
+            }).catch((error) => {console.log('no tickets')})
+    }
+
+    console.log(`/getbyid/${id}`)
+    useEffect(() =>  {
+        getOneTicket()
     })
-    
+
     return (
         <div>
-            <div className="card">
-                <Cards />
-            </div>
-            <div className="qr">
-                <QRCodeGenerator id={'teste'}/>
-            </div>
+            {ticket?.active ?
+                <div>
+                    <div> 
+                        <Cards event={ticket.event} cpf={ticket.cpf} />
+                    </div>
+                    <div>
+                        <QRCodeGenerator id={ticket._id}/>
+                    </div>
+                </div>
+            : 
+                <div>
+                    <h1> No Content </h1>
+                </div>
+            } 
         </div>
     )
 }
