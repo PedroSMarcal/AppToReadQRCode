@@ -2,6 +2,9 @@ import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import { Button, Modal, StyleSheet, Text, View } from "react-native";
 import Scanner from "../../components/Scanner";
+import api from "../../Services/Api";
+import { TicketProps } from "../../Types";
+import SpecificTicket from "../../components/SpecificTicket";
 
 type constType = {
     type?: string;
@@ -17,15 +20,23 @@ type types = {
 
 export default function QRCode(){
     const [ModalVisible, setModalVisible] = useState(false);
-
     const [typeRes, setTypeRes] = useState<constType | undefined>();
     const [dataRes, setDataRes] = useState<constData | undefined>();
+    const [ticket, setTicket] = useState<TicketProps>();
+
 
     const onCodeScanned = (type: constType, data: constData) => {
         setTypeRes(type);
         setDataRes(data);
         setModalVisible(false);
+        
     }
+
+    api.get(`/getbyid/${dataRes}`).then(
+        ({data}) => setTicket(data.getTicketId)
+    ).catch((error) => {
+        console.log('error')
+    })
 
     return (
         <View style={styles.container}>
@@ -42,17 +53,10 @@ export default function QRCode(){
             </Modal>
 
             <StatusBar />
-
-            {/* <Text> Chamarei a API para apresentar os dados </Text>
-            <Text> E darei a opção para atualizar o estado do elemento</Text> */}
-
-            <Text> Type: {typeRes} </Text>
-            <Text> Data: {dataRes} </Text>
+            <SpecificTicket _id={ticket?._id}/>
 
             <Button title="Open Scanner" onPress={() => setModalVisible(true)}/>
         </View>
-
-        // <Scanner />
     )
 }
 
@@ -61,7 +65,7 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: "#fff",
         alignItems: "center",
-        justifyContent: "center",
+        justifyContent: "space-around",
     }, 
     modal: {
         flex: 1,

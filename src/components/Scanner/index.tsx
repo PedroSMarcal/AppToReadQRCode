@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Text, View, StyleSheet, Button } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 
-type handleBarCode ={
-    type: string;
-    data: string;
+type handleBarCode = {
+  type: string;
+  data: string;
 }
 
 interface onCodeScannProps {
@@ -22,7 +22,7 @@ export default function Scanner(props: onCodeScannProps) {
     })();
   }, []);
 
-  const handleBarCodeScanned = ({ type, data }: handleBarCode) => {
+  const handleBarCodeScanned = ({type, data}: handleBarCode) => {
     setScanned(true);
     props.onCodeScanned(type, data);
     // alert(`Bar code with type ${type} and data ${data} has been scanned!`);

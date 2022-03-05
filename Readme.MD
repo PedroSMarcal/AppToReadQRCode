@@ -32,6 +32,12 @@ expo install
 ```
 to get all the dependencies;
 
+### Before Start the app
+**because it isn't in production, go Services-> Api.ts, and change the Route to your computer IPV4, if you open CMD on windown and type ipconfig /all**
+
+**Endereço IPv4. . . . . . . .  . . . . . . . : 192.168.15.6**
+**Something like that** 
+
 then it's just 
 ```
 expo start

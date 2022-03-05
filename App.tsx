@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator  } from '@react-navigation/native-stack'
 
 import LandingPage from './src/pages/LandingPage';
-import SpecificTicket from './src/pages/SpecificTicket';
+import SpecificTicket from './src/components/SpecificTicket';
 import QRCode from './src/pages/QRCode';
 
 const Stack = createNativeStackNavigator();
