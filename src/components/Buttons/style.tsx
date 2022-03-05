@@ -2,13 +2,9 @@ import React from 'react'
 import { StyleSheet } from "react-native"
 
 export const styledButton = StyleSheet.create({
-    buttonGreen: {
-
-    },
-    buttonRed: {
-
-    },
-    buttonGray: {
-        
+    menuButton: {
+        backgroundColor: '#fff',
+        borderColor: '#000',
+        borderRadius: 5,
     }
 })
