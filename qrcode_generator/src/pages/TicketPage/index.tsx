@@ -27,7 +27,7 @@ export default function TicketPage(){
     console.log(`/getbyid/${id}`)
     useEffect(() =>  {
         getOneTicket()
-    })
+    }, [])
 
     return (
         <div>
@@ -42,7 +42,8 @@ export default function TicketPage(){
                 </div>
             : 
                 <div>
-                    <h1> No Content </h1>
+                    <h3>Active Now</h3>
+                    <QRCodeGenerator id={ticket?._id}/>
                 </div>
             } 
         </div>

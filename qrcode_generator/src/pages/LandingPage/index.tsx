@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import api from "../../services/api";
 import Cards from "../../components/Cards";
 import { Link } from "react-router-dom";
+import { LandingStyles } from "./style";
 
 // tickets params
 type ticketProps = {
@@ -25,20 +26,20 @@ export default function LandingPage(){
     
     useEffect(() => {
         getTickets();
-    })
+    }, [])
 
     return (
-        <div>
-            <div>
-                Welcome all the tickets who needs activation it'll be showed here;
-            </div>
-
-            {ticket?.map((ticket) => (
-                <Link to={`/${ticket._id}`}>
-                    <Cards 
-                    key={ticket._id} event={ticket.event} cpf={ticket.cpf}/>
-                </Link>
-            ))}
-        </div>
+            <LandingStyles>
+                <div>
+                    Welcome all the tickets who needs activation it'll be showed here;
+                </div>
+    
+                {ticket?.map((ticket) => (
+                    <Link to={`/${ticket._id}`}>
+                        <Cards 
+                        key={ticket._id} event={ticket.event} cpf={ticket.cpf}/>
+                    </Link>
+                ))}
+            </LandingStyles>
     )
 }

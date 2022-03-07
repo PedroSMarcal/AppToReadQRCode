@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import QRCode from 'qrcode'
+import { QRCodeStle } from "./style";
 
 // the type of params receive to qr code
 type proper = {
-    id: string;
+    id?: string;
 }
 
 export default function QRCodeGenerator( { id }: proper ){
@@ -13,12 +14,15 @@ export default function QRCodeGenerator( { id }: proper ){
     // remember that this method used is to redirect to an route;
     // to read more about this check the URL: https://www.npmjs.com/package/qrcode
     useEffect(() => {
-        QRCode.toDataURL(`localhost:3333/authenticateticket/${id}`).then((setSrc));
+        QRCode.toDataURL(`${id}`).then((setSrc));
     }, [])
 
     return (
-        <div>
-            <img src={src} alt="no image" />
-        </div>
+        <QRCodeStle>
+            <p> Please Scan here </p>
+            <div>
+                <img src={src} alt="no image" />
+            </div>
+        </QRCodeStle>
         )
 };

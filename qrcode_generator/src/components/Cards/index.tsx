@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { CardBox } from './style'
 
 // the props is the params will you receive;
 type props = {
@@ -11,14 +12,12 @@ export default function Cards({ event, cpf }: props){
     
 
     return (
+        <CardBox>
             <div>
-                <div>
-                    <h3> event name: </h3>
-                    {event}
-                    <h3> cpf: </h3>
-                    {cpf}   
-                </div>
+                <p> event name: {event} </p>
+                <p> cpf: {cpf} </p>
             </div>
+        </CardBox>
         )
 };
 
